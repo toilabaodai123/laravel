@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLoaighesTable extends Migration
+class CreateXuatchieusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateLoaighesTable extends Migration
      */
     public function up()
     {
-        Schema::create('loaighes', function (Blueprint $table) {
+        Schema::create('xuatchieus', function (Blueprint $table) {
             $table->id();
-			$table->string('tenloaighe');
+			$table->integer('ngay');
+			$table->integer('thang');
+			$table->integer('nam');
+			$table->integer('gio');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateLoaighesTable extends Migration
      */
     public function down()
     {
-    Schema::drop('loaighes');
+        Schema::dropIfExists('xuatchieus');
     }
 }

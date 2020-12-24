@@ -16,17 +16,16 @@ class CreateGhesTable extends Migration
         Schema::create('ghes', function (Blueprint $table) {
             $table->id();
 			$table->string('tenghe');
-			//$table->bigint('xuatchieughe')->unsigned();
-			$table->biginteger('loaighe')->unsigned();
+			$table->BigInteger('loaighe')->unsigned();
 			$table->foreign('loaighe')
 				  ->references('id')
 				  ->on('loaighes');
-			$table->biginteger('tenrap')->unsigned();
-			$table->foreign('tenrap')
+			$table->BigInteger('rap')->unsigned();
+			$table->foreign('rap')
 				  ->references('id')
 				  ->on('raps');
-			
             $table->timestamps();
+
         });
     }
 

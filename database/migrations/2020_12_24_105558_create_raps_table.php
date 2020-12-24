@@ -27,6 +27,6 @@ class CreateRapsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('raps');
+    Schema::drop('raps');
     }
 }

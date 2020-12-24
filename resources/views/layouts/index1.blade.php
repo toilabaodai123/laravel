@@ -145,15 +145,15 @@
                                     <i class="la la-dashboard"></i>Ghế <div class="arrow-down"></div></a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="{{url('danhsachkhachhang')}}">Danh sách Ghế</a>
+                                        <a href="{{url('danhsachghe')}}">Danh sách Ghế</a>
                                     </li>
 									
 									<li>
-                                        <a href="{{url('danhsachkhachhang')}}">Danh sách lịch của Ghế</a>
+                                        <a href="{{url('danhsachghe')}}">Danh sách lịch của Ghế</a>
                                     </li>
 									
                                     <li>
-                                        <a href="{{url('themkhachhang')}}">Thêm ghế</a>
+                                        <a href="{{url('themghe')}}">Thêm ghế</a>
                                     </li>
 									
 									<li>

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\phim;
 use App\daodien;
 use App\loaiphim;	
+use App\ghe;
+use App\loaighe;
+use App\rap;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,3 +87,16 @@ Route::get('/loaighe/{id}','loaigheController@show');
 Route::post('/danhsachloaighe','loaigheController@store');
 Route::put('/loaighe/{id}','loaigheController@update');
 Route::delete('/loaighe/{id}','loaigheController@destroy');
+
+
+Route::get('/themghe', function () {
+	$dsghe = ghe::all();
+	$dsloaighe = loaighe::all();
+	$dsrap = rap::all();
+    return view('ghe.themghe',compact('dsghe','dsloaighe','dsrap'));
+});
+Route::get('danhsachghe','gheController@index');
+Route::get('/ghe/{id}','gheController@show');
+Route::post('/danhsachghe','gheController@store');
+Route::put('/ghe/{id}','gheController@update');
+Route::delete('/ghe/{id}','gheController@destroy');
