@@ -1,0 +1,86 @@
+<?php	
+
+use Illuminate\Support\Facades\Route;
+use App\phim;
+use App\daodien;
+use App\loaiphim;	
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+Route::get('/', function () {
+    return view('layouts/index1');
+});
+Route::get('/themdaodien', function () {
+    return view('daodien.themdaodien');
+});
+
+
+Route::get('/danhsachdaodien','daodienController@index');
+Route::get('/daodien/create','daodienController@create');
+Route::post('/danhsachdaodien','daodienController@store');
+Route::delete('/daodien/{id}','daodienController@destroy');
+Route::put('/daodien/{id}','daodienController@update');
+Route::get('/daodien/{id}','daodienController@show');
+
+
+Route::get('/themloaiphim', function () {
+    return view('loaiphim.themloaiphim');
+});
+Route::get('danhsachloaiphim','loaiphimController@index');
+Route::post('/danhsachloaiphim','loaiphimController@store');
+Route::delete('/loaiphim/{id}','loaiphimController@destroy');
+Route::put('/loaiphim/{id}','loaiphimController@update');
+Route::get('/loaiphim/{id}','loaiphimController@show');
+
+
+
+Route::get('/themphim', function () {
+	$dsphim = phim::all();
+	$dsloaiphim = loaiphim::all();
+	$dsdaodien = daodien::all();
+    return view('phim.themphim',compact('dsphim','dsloaiphim','dsdaodien'));
+});
+Route::get('danhsachphim','phimController@index');
+Route::post('/danhsachphim','phimController@store');
+Route::get('/phim/{id}','phimController@show');
+Route::delete('/phim/{id}','phimController@destroy');
+Route::put('/phim/{id}','phimController@update');
+
+
+
+Route::get('/themkhachhang', function () {
+    return view('khachhang.themkhachhang');
+});
+Route::get('danhsachkhachhang','khachhangController@index');
+Route::get('/khachhang/{id}','khachhangController@show');
+Route::post('/danhsachkhachhang','khachhangController@store');
+Route::delete('/khachhang/{id}','khachhangController@destroy');
+Route::put('/khachhang/{id}','khachhangController@update');
+
+
+Route::get('/themrap', function () {
+    return view('rap.themrap');
+});
+Route::get('danhsachrap','rapController@index');
+Route::get('/rap/{id}','rapController@show');
+Route::post('/danhsachrap','rapController@store');
+Route::put('/rap/{id}','rapController@update');
+Route::delete('/rap/{id}','rapController@destroy');
+
+
+
+Route::get('/themloaighe', function () {
+    return view('loaighe.themloaighe');
+});
+Route::get('danhsachloaighe','loaigheController@index');
+Route::get('/loaighe/{id}','loaigheController@show');
+Route::post('/danhsachloaighe','loaigheController@store');
+Route::put('/loaighe/{id}','loaigheController@update');
+Route::delete('/loaighe/{id}','loaigheController@destroy');
