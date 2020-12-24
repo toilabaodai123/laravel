@@ -10,4 +10,8 @@ class phim extends Model
 		return $this->hasOne('App\loaiphim','tenloaiphim','id');
 		return $this->hasOne('App\daodien','tendaodien','id');
 	}
+	
+	public function xuatchieuuu(){
+		return $this->belongsTo('App\xuatchieu');
+	}
 }

@@ -130,11 +130,11 @@
                                     <i class="la la-dashboard"></i>Xuất chiếu <div class="arrow-down"></div></a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="{{url('danhsachkhachhang')}}">Danh sách xuất chiếu</a>
+                                        <a href="{{url('danhsachxuatchieu')}}">Danh sách xuất chiếu</a>
                                     </li>
 									
                                     <li>
-                                        <a href="{{url('themkhachhang')}}">Thêm xuất chiếu</a>
+                                        <a href="{{url('themxuatchieu')}}">Thêm xuất chiếu</a>
                                     </li>
                                 </ul>
                             </li>

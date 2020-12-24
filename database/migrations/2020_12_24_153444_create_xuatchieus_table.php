@@ -15,10 +15,13 @@ class CreateXuatchieusTable extends Migration
     {
         Schema::create('xuatchieus', function (Blueprint $table) {
             $table->id();
-			$table->integer('ngay');
-			$table->integer('thang');
-			$table->integer('nam');
 			$table->integer('gio');
+			$table->date('dmy');
+			$table->BigInteger('phim')->unsigned();
+			$table->foreign('phim')
+				  ->references('id')
+				  ->on('phims');
+			
             $table->timestamps();
         });
     }

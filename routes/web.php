@@ -7,6 +7,7 @@ use App\loaiphim;
 use App\ghe;
 use App\loaighe;
 use App\rap;
+use App\xuatchieu;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,3 +101,14 @@ Route::get('/ghe/{id}','gheController@show');
 Route::post('/danhsachghe','gheController@store');
 Route::put('/ghe/{id}','gheController@update');
 Route::delete('/ghe/{id}','gheController@destroy');
+
+Route::get('/themxuatchieu', function () {
+	$dsxuatchieu = xuatchieu::all();
+	$dsphim = phim::all();
+    return view('xuatchieu.themxuatchieu',compact('dsphim'));
+});
+Route::get('danhsachxuatchieu','xuatchieuController@index');
+Route::get('/xuatchieu/{id}','xuatchieuController@show');
+Route::post('/danhsachxuatchieu','xuatchieuController@store');
+Route::put('/xuatchieu/{id}','xuatchieuController@update');
+Route::delete('/xuatchieu/{id}','xuatchieuController@destroy');
