@@ -186,11 +186,11 @@
                                     <i class="la la-dashboard"></i>Vé xem phim <div class="arrow-down"></div></a>
                                 <ul class="submenu">
                                     <li>
-                                        <a href="{{url('danhsachkhachhang')}}">Danh sách Vé xem phim</a>
+                                        <a href="{{url('danhsachve')}}">Danh sách Vé xem phim</a>
                                     </li>
 									
                                     <li>
-                                        <a href="{{url('themkhachhang')}}">Thêm Vé</a>
+                                        <a href="{{url('themve')}}">Thêm Vé</a>
                                     </li>
                                 </ul>
                             </li>

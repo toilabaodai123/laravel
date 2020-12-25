@@ -10,4 +10,8 @@ class ghe extends Model
 		return $this->hasOne('App\loaighe','loaighe','id');
 		return $this->hasOne('App\rap','tenrap','id');
 	}
+	
+	public function vea(){
+		return $this->belongsTo('App\ve');
+	}
 }

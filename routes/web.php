@@ -8,6 +8,8 @@ use App\ghe;
 use App\loaighe;
 use App\rap;
 use App\xuatchieu;
+use App\ve;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -102,6 +104,9 @@ Route::post('/danhsachghe','gheController@store');
 Route::put('/ghe/{id}','gheController@update');
 Route::delete('/ghe/{id}','gheController@destroy');
 
+
+
+
 Route::get('/themxuatchieu', function () {
 	$dsxuatchieu = xuatchieu::all();
 	$dsphim = phim::all();
@@ -112,3 +117,24 @@ Route::get('/xuatchieu/{id}','xuatchieuController@show');
 Route::post('/danhsachxuatchieu','xuatchieuController@store');
 Route::put('/xuatchieu/{id}','xuatchieuController@update');
 Route::delete('/xuatchieu/{id}','xuatchieuController@destroy');
+
+
+
+
+Route::get('/themve', function () {
+	$dsve = ve::all();
+	$dsphim = phim::all();
+	$dsghe = ghe::all();
+	$dsxuatchieu = xuatchieu::all();
+	
+    return view('ve.themve',compact('dsve','dsphim','dsghe','dsxuatchieu'));
+});
+Route::get('danhsachve','veController@index');
+Route::get('/ve/{id}','veController@show');
+Route::post('/danhsachve','veController@store');
+Route::put('/ve/{id}','veController@update');
+Route::delete('/ve/{id}','veController@destroy');
+
+
+
+
