@@ -8,6 +8,8 @@ use App\phim;
 use App\ghe;
 use App\xuatchieu;
 use DB;
+use App\khachhang;
+use App\thoigianghe;
 
 class veController extends Controller
 {
@@ -16,23 +18,26 @@ class veController extends Controller
 		$dsve = ve::all();
 		$dsphim = phim::all();
 		$dsghe = ghe::all();
+		$dskhachhang=khachhang::all();
 		$dsxuatchieu = xuatchieu::all();
 		$test = DB::table('ves')
 				->join('phims','ves.phim','phims.id')
 				->join('ghes','ves.ghe','ghes.id')
 				->join('xuatchieus','ves.xuatchieu','xuatchieus.id')
-				->select('ves.id','phims.tenphim','ghes.tenghe','xuatchieus.dmy','xuatchieus.gio')
+				->join('khachhangs','ves.khachhang','khachhangs.taikhoan')
+				->select('ves.id','phims.tenphim','ghes.tenghe','xuatchieus.dmy','xuatchieus.gio','khachhangs.taikhoan','khachhangs.hoten')
 				->get();
-				
-		return view('ve.danhsachve',
-		compact('dsve','dsphim','dsghe','dsxuatchieu','test'));
+			return view('ve.danhsachve',
+			compact('dsve','dsphim','dsghe','dskhachhang','dsxuatchieu','test'));
+		
 
 	}
+
 	
 	public function show($id){
 		$dsve = ve::findorfail($id);
 		
-		
+		$dskhachhang=khachhang::all();
 		$dsphim = phim::where('id',$dsve->phim)->get();
 		$dsphim2 = phim::all();
 		$dsghe = ghe::where('id',$dsve->ghe)->get();
@@ -41,7 +46,7 @@ class veController extends Controller
 		$dsxuatchieu2 = xuatchieu::all();
 		
 		return view('ve.suave',
-		compact('dsve','dsphim','dsghe','dsxuatchieu','dsphim2','dsghe2','dsxuatchieu2'));
+		compact('dsve','dsphim','dsghe','dsxuatchieu','dsphim2','dsghe2','dsxuatchieu2','dskhachhang'));
 	}
 	
 		public function store(){
@@ -49,12 +54,52 @@ class veController extends Controller
 		$dsve->phim=request('phim');
 		$dsve->ghe=request('ghe');
 		$dsve->xuatchieu=request('xuatchieu');
+		$dsve->khachhang=request('khachhang');
+		$dsxuatchieu = xuatchieu::get('dmy');
+		$dsthoigianghe = new thoigianghe();
+		$test = DB::table('xuatchieus')
+				  ->select('dmy')
+				  ->where('id','=',$dsve->xuatchieu)
+				  ->get();
+		foreach($test as $a){
+			$dsthoigianghe->thoigian= $a->dmy;
+		}
 		
+		
+		
+		
+		$dsthoigianghe->ghe=request('ghe');
+		$dsthoigianghe->phim=request('phim');
+		
+		$datathoigianghe = thoigianghe::all();
+		$dataghe = ghe::all();
+		$dataghe2 = ghe::where('id',$dsve->ghe)->get();
+		//$datathoigianghe2 = thoigianghe::where('id',$dsve->xuatchieu)->get();
+		$data4 = xuatchieu::where('id',$dsve->xuatchieu)->get();
+		//dd($data4);
+		$a = '';
+		$b = '';
+		foreach($dataghe2 as $data){$b = $data->id;}
+		//dd($b);
+		foreach($data4 as $data){$a = $data->dmy;}
+		//dd($a);
+		foreach($datathoigianghe as $data){
+			//dd($data->thoigian.'>>>>>>>'.$a);
+			if($data->thoigian == $a && $data->ghe==$dsve->ghe){
+				return redirect('/themve')->with('message','Ghế đã có người đặt');
+			}
+			else{
+				continue;
+			}
+		}	
 
+
+		$dsthoigianghe->save();
 		$dsve->save();
-		
 		return redirect('/themve')->with('message','Thêm thành công vé');
-	}
+		
+		}
+
 	
 	public function update($id){
 		

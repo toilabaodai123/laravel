@@ -15,4 +15,8 @@ class phim extends Model
 		return $this->belongsTo('App\xuatchieu');
 		return $this->belongsTo('App\ve');
 	}
+	
+	public function thoigianghee(){
+		return $this->belongsTo('App\thoigianghe');
+	}
 }

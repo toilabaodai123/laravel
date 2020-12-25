@@ -14,7 +14,7 @@
                                     <li class="breadcrumb-item active">Basic Elements</li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Thêm vé</h4>
+                            <h4 class="page-title">Thêm phim</h4>
                         </div>
                     </div>
                 </div>     
@@ -24,35 +24,26 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-								<h4 class="header-title">Thông tin vé</h4>
+								<h4 class="header-title">Thông tin phim</h4>
                                 <h4 class="header-title">{{session('message')}}</h4>
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <form action="{{url('/danhsachve')}}" method="post">
+                                        <form action="{{url('/danhsachphim')}}" method="post">
 											@csrf
-												<label for="simpleinput">Tên phim</label>
-												<select name="phim" class="form-control" id="example-select" style="width:200px">
-														@foreach($dsphim as $phim)
-														<option value="{{$phim->id}}">{{$phim->tenphim}}</option>
+                                            <div class="form-group mb-3">
+                                                <label for="simpleinput">Tên phim</label>
+                                                <input name="tenphim" type="text" id="simpleinput" class="form-control">
+                                            </div>
+												<label for="simpleinput">Loại phim</label>
+												<select name="tenloaiphim" class="form-control" id="example-select" style="width:100px">
+														@foreach($dsloaiphim as $loaiphim)
+														<option value="{{$loaiphim->id}}">{{$loaiphim->tenloaiphim}}</option>
 														@endforeach
 												</select>
-												<label for="simpleinput">Ghế</label>
-												<select name="ghe" class="form-control" id="example-select" style="width:200px">
-														@foreach($dsghe as $ghe)
-														<option value="{{$ghe->id}}">{{$ghe->tenghe}}</option>
-														@endforeach
-												</select>
-												<label for="simpleinput">Xuất chiếu</label>
-												<select name="xuatchieu" class="form-control" id="example-select" style="width:200px">
-														@foreach($dsxuatchieu as $xuatchieu)
-															<option value="{{$xuatchieu->id}}">{{$xuatchieu->dmy}} lúc {{$xuatchieu->gio}} giờ</option>
-														@endforeach
-												</select>
-												<label for="simpleinput">Khách hàng</label>
-												<select name="khachhang" class="form-control" id="example-select" style="width:200px">
-												
-														@foreach($dskhachhang as $khachhang)
-														<option value="{{$khachhang->taikhoan}}">{{$khachhang->hoten}}</option>
+												<label for="simpleinput">Đạo diễn</label>
+												<select name="tendaodien" class="form-control" id="example-select" style="width:100px">
+														@foreach($dsdaodien as $daodien)
+														<option value="{{$daodien->id}}">{{$daodien->tendaodien}}</option>
 														@endforeach
 												</select>
 												

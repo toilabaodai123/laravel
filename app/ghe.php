@@ -14,4 +14,8 @@ class ghe extends Model
 	public function vea(){
 		return $this->belongsTo('App\ve');
 	}
+	
+	public function thoigianghea(){
+		return $this->belongsTo('App\thoigianghe');
+	}
 }

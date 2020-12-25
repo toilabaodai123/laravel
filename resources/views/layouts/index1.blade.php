@@ -149,7 +149,7 @@
                                     </li>
 									
 									<li>
-                                        <a href="{{url('danhsachghe')}}">Danh sách lịch của Ghế</a>
+                                        <a href="{{url('danhsachthoigianghe')}}">Danh sách lịch của Ghế</a>
                                     </li>
 									
                                     <li>

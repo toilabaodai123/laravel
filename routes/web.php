@@ -9,7 +9,7 @@ use App\loaighe;
 use App\rap;
 use App\xuatchieu;
 use App\ve;
-
+use App\khachhang;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -126,8 +126,9 @@ Route::get('/themve', function () {
 	$dsphim = phim::all();
 	$dsghe = ghe::all();
 	$dsxuatchieu = xuatchieu::all();
+	$dskhachhang=khachhang::all();
 	
-    return view('ve.themve',compact('dsve','dsphim','dsghe','dsxuatchieu'));
+    return view('ve.themve',compact('dsve','dsphim','dsghe','dsxuatchieu','dskhachhang'));
 });
 Route::get('danhsachve','veController@index');
 Route::get('/ve/{id}','veController@show');
@@ -136,5 +137,8 @@ Route::put('/ve/{id}','veController@update');
 Route::delete('/ve/{id}','veController@destroy');
 
 
-
+Route::get('/themthoigiange', function () {
+    return view('thoigianghe.themthoigian');
+});
+Route::get('danhsachthoigianghe','thoigiangheController@index');
 

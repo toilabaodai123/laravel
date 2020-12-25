@@ -28,12 +28,23 @@ class daodienController extends Controller
 	public function store(){
 		
 		$daodien = new daodien();
-		
+		$bro = daodien::all();
 		$daodien->tendaodien=request('tendaodien');
-		$daodien->save();
+		$a = daodien::where('tendaodien',$daodien->tendaodien)->get();
+		foreach($a as $b){
+			if($b->tendaodien != $daodien->tendaodien)
+				continue;
+		else{
+			return redirect('/themdaodien')->with('message','Tồn tại đạo diễn '.$daodien->tendaodien);}
+			
+					
 		
+		}
+		$daodien->save();
 		return redirect('/themdaodien')->with('message','Thêm thành công đạo diễn '.$daodien->tendaodien);
 	}
+
+	
 	public function destroy($id){
 		$daodien = daodien::findorfail($id);
 		$daodien->delete();
