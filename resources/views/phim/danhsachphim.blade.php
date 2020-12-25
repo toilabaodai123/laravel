@@ -21,6 +21,7 @@
 												<tr>
 												<td>
                                                     <h5 class="m-0 font-weight-normal">{{$phim->tenphim}}</h5>
+													<input hidden name="phim" value="{{$phim->tenphim}}">
                                                 </td>
 													<td>
 													<h5 class="m-0 font-weight-normal">{{$phim->tenloaiphim}}</h5>
@@ -34,7 +35,8 @@
 												
 												
                                                 <td>
-                                                    <a href="phim/{{$phim->id}}" class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil">Sửa</i></a>
+                                                    <a href="themvequaphim/{{$phim->id}}" class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil">Test</i></a>
+													<a href="phim/{{$phim->id}}" class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil">Sửa</i></a>
 													<form action="phim/{{$phim->id}}" method="POST">
 														@csrf
 														@method('DELETE')

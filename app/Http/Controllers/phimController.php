@@ -10,6 +10,21 @@ use DB;
 
 class phimController extends Controller
 {
+	
+	public function test(){
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
     public function index(){
 		$dsphim = phim::all();
 		$dsdaodien = daodien::all();

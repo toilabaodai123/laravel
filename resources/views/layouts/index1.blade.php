@@ -190,7 +190,7 @@
                                     </li>
 									
                                     <li>
-                                        <a href="{{url('themve')}}">Thêm Vé</a>
+                                        <a href="{{url('themve')}}">Thêm Vé(-)</a>
                                     </li>
                                 </ul>
                             </li>

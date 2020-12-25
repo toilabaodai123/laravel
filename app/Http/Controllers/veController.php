@@ -117,4 +117,18 @@ class veController extends Controller
 		$dsve->delete();
 		return redirect('/danhsachve')->with('message','Xoá thành công vé');
 	}
+	public function ok($id){
+		$dsve = ve::findorfail($id);
+		
+		$dskhachhang=khachhang::all();
+		$dsphim = phim::where('id',$dsve->phim)->get();
+		$dsphim2 = phim::all();
+		$dsghe = ghe::where('id',$dsve->ghe)->get();
+		$dsghe2 = ghe::all();
+		$dsxuatchieu = xuatchieu::where('id',$dsve->xuatchieu)->get();
+		$dsxuatchieu2 = xuatchieu::all();
+		
+		return view('ve.suave',
+		compact('dsve','dsphim','dsghe','dsxuatchieu','dsphim2','dsghe2','dsxuatchieu2','dskhachhang'));
+	}
 }

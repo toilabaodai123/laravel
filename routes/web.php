@@ -142,3 +142,28 @@ Route::get('/themthoigiange', function () {
 });
 Route::get('danhsachthoigianghe','thoigiangheController@index');
 
+
+
+Route::get('themvequaphim/{id}', function ($id) {
+		$dsphim = phim::findorfail($id);
+		//dd($dsphim->id);
+		foreach($dsphim as $phim){
+			//dd($phim);
+		}
+		//dd($dsphim);
+		$dsghe = ghe::all();
+		$dsxuatchieu = xuatchieu::all();
+		$a = new xuatchieu();
+		$a->xuatchieu=request('xuatchieu');
+		$dsxuatchieu2 = xuatchieu::where('phim',$dsphim->id)->get();
+		//dd($dsxuatchieu2);
+		$dskhachhang = khachhang::all();
+		
+		return view ('ve.themvequaphim',compact('dsphim','dsghe','dsxuatchieu','dskhachhang','dsxuatchieu2'));
+}); 
+Route::post('/danhsachvequaphim/{id}','taovequaphimController@store');
+
+//Route::get('/themvequaphim/{id}','taovequaphimController@index');
+/* Route::get('/themvequaphim/{id}',function($id){
+	return ('a');
+}); */
