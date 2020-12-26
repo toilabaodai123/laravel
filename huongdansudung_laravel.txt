@@ -1,0 +1,39 @@
+hướng dẫn sử dụng
+-đặt phim:
++phải chọn phim để đặt trước
++khi chọn phim , sẽ tự load danh sách xuất chiếu thuộc về phim đó , không phải thì k load lên
+
+
++kiểm tra ghế(
+	-nếu mà cùng rạp , cùng ghế , cùng ngày chiều + giờ chiếu
+	=> xuất thông báo ghế đã đặt
+	-nếu ghế trống thì lưu thông tin lại
+)
+
+
++lưu thông tin ghế vừa đặt(
+	-lưu vào vé riêng vì sẽ có thêm chi tiết vé (1 người đặt nhiều ghé , vé)
+	-lưu vào thời gian ghế(
+		cái này dùng để so thời gian với xuất chiếu , trùng nhau thì ghế này đã được đặt => chọn ghế khác
+	)
+)
+
+-xuất chiếu
++do chưa thể chọn ngày => load thời gian
+nên sẽ gộp chung ngày + thời gian vào 1 xuất chiếu
++do gộp lại nên thay vì 1 xuất chiếu của 1 ngày , 3 giờ thì sẽ có 3 xuất chiếu của cùng 1 ngày và từng giờ
+
+-tạo dữ liệu con
++lưu ý trùng dữ liệu ( có kiểm tra )
++có kiểm tra validate
+=>phải nhập dữ liệu , một số thông tin có ràng buộc kiểu dữ liệu ( chỉ chữ , thuộc định dạng date() )
+
+-đăng nhập
++ do đây là trang admin nên k cần phải làm chức năng đăng nhập vì những người kết nối được trang này
+thì người là đó là qtv rồi
+
+-giá tiền
++có , tự động tính 
++giá loại ghế , giá phim , giá giờ chiếu ( trên 20h thì công thêm tiền giờ chiếu)
+
+
