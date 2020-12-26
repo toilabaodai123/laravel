@@ -9,6 +9,7 @@ use App\xuatchieu;
 use App\khachhang;
 use App\ve;
 use App\thoigianghe;
+use App\loaighe;
 use DB;
 
 class taovequaphimController extends Controller
@@ -35,6 +36,31 @@ class taovequaphimController extends Controller
 		$dsthoigianghe = new thoigianghe();
 		$abc = xuatchieu::where('id',$dsve->xuatchieu)->get('gio');
 		$lol = 0; 
+		
+		$datagiatien1 = phim::where('id',$dsve->phim)->get();
+		$xx ='';
+		foreach($datagiatien1 as $data)$xx = $data->giaphim;//giá phim
+		//dd($xx);
+		$datagiatien2 = ghe::where('id',$dsve->ghe)->get();
+		$x = '';
+		foreach($datagiatien2 as $a);//lấy id loại ghế
+		{$x = $a->loaighe;};
+		
+		//dd($x);
+		$datagiatien22 = loaighe::where('id',$x)->get();
+		//dd($datagiatien22);	
+		$xxx = '';
+		foreach($datagiatien22 as $a)$xxx = $a->giaghe;//giá ghế
+		//dd($xxx);
+		
+		$datagiatien3 = xuatchieu::where('id',$dsve->xuatchieu)->get();//giá xuất chiếu
+		$xxxx = '';
+		foreach($datagiatien3 as $a)$xxxx = $a->giaxuatchieu;
+		//dd($xxxx);
+		
+		$tongtien = $xx+  $xxx + $xxxx;
+		
+		$dsve->tongtienve=$tongtien;
 		
 	
 
@@ -67,6 +93,10 @@ class taovequaphimController extends Controller
 		
 		$dsthoigianghe->save();
 		$dsve->save();
+		
+
+		
+		
 		return redirect('/themvequaphim/'.$dsve->phim)->with('message','Thêm thành công vé');
 		}
 	

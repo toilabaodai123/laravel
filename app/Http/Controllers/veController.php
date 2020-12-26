@@ -16,6 +16,18 @@ class veController extends Controller
     public function index(){
 		
 		$dsve = ve::all();
+		$tong = 0;
+		foreach($dsve as $a)
+			$tong = $tong + $a->tongtienve;
+		
+		
+		
+		
+		
+		
+		
+		
+		$dsve = ve::all();
 		$dsphim = phim::all();
 		$dsghe = ghe::all();
 		$dskhachhang=khachhang::all();
@@ -25,10 +37,10 @@ class veController extends Controller
 				->join('ghes','ves.ghe','ghes.id')
 				->join('xuatchieus','ves.xuatchieu','xuatchieus.id')
 				->join('khachhangs','ves.khachhang','khachhangs.taikhoan')
-				->select('ves.id','phims.tenphim','ghes.tenghe','xuatchieus.dmy','xuatchieus.gio','khachhangs.taikhoan','khachhangs.hoten')
+				->select('ves.id','phims.tenphim','ghes.tenghe','xuatchieus.dmy','xuatchieus.gio','khachhangs.taikhoan','khachhangs.hoten','ves.tongtienve')
 				->get();
 			return view('ve.danhsachve',
-			compact('dsve','dsphim','dsghe','dskhachhang','dsxuatchieu','test'));
+			compact('dsve','dsphim','dsghe','dskhachhang','dsxuatchieu','test','tong'));
 		
 
 	}

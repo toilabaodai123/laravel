@@ -49,6 +49,7 @@
 														@endforeach
 												</select>
 												<label for="simpleinput" style="color:red">@error('tendaodien'){{$message}}@enderror</label><br>
+												<label for="simpleinput">Giá phim</label>
 												<select name="giaphim" class="form-control" id="example-select" style="width:100px">
 														<option >50000</option>
 												</select>

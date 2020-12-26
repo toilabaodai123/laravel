@@ -35,6 +35,7 @@ class CreateVesTable extends Migration
 			$table->foreign('rap')
 				  ->references('id')
 				  ->on('raps');
+			$table->integer('tongtienve');
             $table->timestamps();
         });
     }

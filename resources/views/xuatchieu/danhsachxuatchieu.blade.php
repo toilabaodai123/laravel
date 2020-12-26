@@ -14,6 +14,7 @@
                                                 <th>Rạp</th>
 												<th>Ngày</th>
 												<th>Thời gian</th>
+												<th>Giá tiền</th>
                                                 <th>Thao tác</th>
                                             </tr>
                                         </thead>
@@ -33,7 +34,9 @@
 												<td>
                                                     <h5 class="m-0 font-weight-normal">{{$xuatchieu->gio}}</h5>
                                                 </td>
-												
+												<td>
+                                                    <h5 class="m-0 font-weight-normal">{{$xuatchieu->giaxuatchieu}}</h5>
+                                                </td>
 												
 												
 												

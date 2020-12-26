@@ -15,7 +15,7 @@ class xuatchieuController extends Controller
 		$test = DB::table('xuatchieus')
 				->join('phims','xuatchieus.phim','phims.id')
 				->join('raps','xuatchieus.rap','raps.id')
-				->select('xuatchieus.id','phims.tenphim','xuatchieus.dmy','xuatchieus.gio','raps.tenrap')
+				->select('xuatchieus.id','phims.tenphim','xuatchieus.dmy','xuatchieus.gio','raps.tenrap','xuatchieus.giaxuatchieu')
 				->get();
 				
 		return view('xuatchieu.danhsachxuatchieu',
@@ -59,6 +59,10 @@ class xuatchieuController extends Controller
 		$xuatchieu->dmy=request('dmy');
 		$xuatchieu->gio=request('gio');
 		$xuatchieu->rap = request('rap');
+		if($xuatchieu->gio <19)
+			$xuatchieu->giaxuatchieu=0;
+		else
+			$xuatchieu->giaxuatchieu=10000;
 		
 		
 			foreach($data2 as $xc){

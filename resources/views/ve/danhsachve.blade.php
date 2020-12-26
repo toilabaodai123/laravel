@@ -16,6 +16,7 @@
 												<th>Ghế</th>
 												<th>Ngày chiếu</th>
 												<th>Thời gian</th>
+												<th>Tổng tiền</th>
                                                 <th hidden>Thao tác</th>
                                             </tr>
                                         </thead>
@@ -40,7 +41,9 @@
 												<td style="width:50px">
                                                     <h5 class="m-0 font-weight-normal">{{$ve->gio}}</h5>
                                                 </td>
-													
+												<td style="width:50px">
+                                                    <h5 class="m-0 font-weight-normal">{{$ve->tongtienve}}</h5>
+                                                </td>
 												
 												
 												
@@ -57,10 +60,11 @@
                                                 </td>
                                             </tr>
 											@endforeach
-
+											
                                         </tbody>
 										
                                     </table>
+									<label for="simpleinput" style="float:right">Tổng tiền : {{$tong}}</label>
                                 </div> <!-- end .table-responsive-->
                             </div> <!-- end card-box-->
                         </div> <!-- end col -->

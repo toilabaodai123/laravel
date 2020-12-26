@@ -30,6 +30,7 @@
                                     <div class="col-lg-6">
                                         <form action="{{url('/danhsachxuatchieu')}}" method="post">
 											@csrf
+											<label for="simpleinput">Phim</label>
 											<select name="phim" class="form-control" id="example-select" style="width:100px">
 														@foreach($dsphim as $phim)
 														<option value="{{$phim->id}}">{{$phim->tenphim}}</option>
@@ -43,14 +44,13 @@
 												</select>
                                             </div>
 											<label for="simpleinput" style="color:red">@error('rap'){{$message}}@enderror</label><br>
-                                            <div class="form-group mb-3">
+                                            <div class="form-group mb-3" style="float:left;width:500px">
                                                 <label for="simpleinput">Ngày</label>
-                                                <input name="dmy" type="date" id="simpleinput" class="form-control">
-                                            </div>
-											<label for="simpleinput" style="color:red">@error('dmy'){{$message}}@enderror</label><br>
-											
-											<label for="simpleinput">Thời gian</label>
-											<select name="gio" class="form-control" id="example-select" style="width:100px">
+                                                <input name="dmy" type="date" id="simpleinput" class="form-control" style="width:170px">
+												<label for="simpleinput" style="color:red">@error('dmy'){{$message}}@enderror</label><br>
+												
+												<label for="simpleinput">Thời gian</label>
+												<select name="gio" class="form-control" id="example-select" style="width:100px">
 														
 														<option >1</option>
 														<option >2</option>
@@ -79,7 +79,11 @@
 												
 												</select>
 												<label for="simpleinput" style="color:red">@error('gio'){{$message}}@enderror</label><br>
-											<div class="col-lg-6">
+                                            </div>
+											
+											
+											
+											<div class="col-lg-6" style="clear:both">
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>
 											</div>
                                         </form>

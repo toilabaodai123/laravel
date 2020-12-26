@@ -25,7 +25,7 @@ class CreateXuatchieusTable extends Migration
 			$table->foreign('rap')
 				  ->references('id')
 				  ->on('raps');
-			
+			$table->integer('giaxuatchieu');
             $table->timestamps();
         });
     }

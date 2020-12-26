@@ -17,7 +17,7 @@ class gheController extends Controller
 		$test = DB::table('ghes')
 				->join('raps','ghes.rap','raps.id')
 				->join('loaighes','ghes.loaighe','loaighes.id')
-				->select('ghes.id','ghes.tenghe','loaighes.tenloaighe','raps.tenrap')
+				->select('ghes.id','ghes.tenghe','loaighes.tenloaighe','raps.tenrap','loaighes.giaghe')
 				->get();
 				
 		return view('ghe.danhsachghe',
