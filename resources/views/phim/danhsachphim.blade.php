@@ -13,6 +13,7 @@
                                                 <th>Tên phim</th>
 												<th>Loại phim</th>
 												<th>Đạo diễn</th>
+												<th>Giá phim</th>
                                                 <th>Thao tác</th>
                                             </tr>
                                         </thead>
@@ -28,6 +29,9 @@
 													</td>
 												<td>
                                                     <h5 class="m-0 font-weight-normal">{{$phim->tendaodien}}</h5>
+                                                </td>
+												<td>
+                                                    <h5 class="m-0 font-weight-normal">{{$phim->giaphim}}</h5>
                                                 </td>
 													
 												

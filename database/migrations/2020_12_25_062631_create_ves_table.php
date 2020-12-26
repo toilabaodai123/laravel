@@ -31,6 +31,10 @@ class CreateVesTable extends Migration
 			$table->foreign('xuatchieu')
 				  ->references('id')
 				  ->on('xuatchieus');
+			$table->biginteger('rap')->unsigned();
+			$table->foreign('rap')
+				  ->references('id')
+				  ->on('raps');
             $table->timestamps();
         });
     }

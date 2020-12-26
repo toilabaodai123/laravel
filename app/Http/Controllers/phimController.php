@@ -32,7 +32,7 @@ class phimController extends Controller
 		$test = DB::table('phims')
 				->join('loaiphims','phims.tenloaiphim','loaiphims.id')
 				->join('daodiens','phims.tendaodien','daodiens.id')
-				->select('phims.id','phims.tenphim','loaiphims.tenloaiphim','daodiens.tendaodien')
+				->select('phims.id','phims.tenphim','loaiphims.tenloaiphim','daodiens.tendaodien','phims.giaphim')
 				->get();
 				
 		return view('phim.danhsachphim',
@@ -77,6 +77,7 @@ class phimController extends Controller
 		$phim->tenphim=request('tenphim');
 		$phim->tenloaiphim=request('tenloaiphim');
 		$phim->tendaodien=request('tendaodien');
+		$phim->giaphim=request('giaphim');
 		$phim->save();
 		
 		return redirect('/themphim')->with('message','Thêm thành công phim '.$phim->tenphim);
@@ -96,6 +97,7 @@ class phimController extends Controller
 		$phim->tenloaiphim=request('tenloaiphim');
 		$phim->tenphim=request('tenphim');
 		$phim->tendaodien=request('tendaodien');
+		$phim->giaphim=request('giaphim');
 		$phim->save();
 		
 		return redirect('/danhsachphim')->with('message','Sửa thành công phim '.$temp.' thành ' .$phim->tenphim);

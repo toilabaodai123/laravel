@@ -35,6 +35,13 @@
                                                 <input name="tenloaighe" type="text" id="simpleinput" class="form-control">
 												<label for="simpleinput" style="color:red">@error('tenloaighe'){{$message}}@enderror</label><br>
                                             </div>
+												<label for="simpleinput">Giá loại ghế</label>
+												<select name="giaghe" class="form-control" id="example-select" style="width:100px">
+														<option>0</option>
+														<option>20000</option>
+														<option>50000</option>
+												</select>
+												<label for="simpleinput" style="color:red">@error('giaghe'){{$message}}@enderror</label><br>
 											<div class="col-lg-6">
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>
 											</div>

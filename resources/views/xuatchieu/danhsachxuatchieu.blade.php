@@ -11,7 +11,8 @@
                                         <thead class="thead-light">
                                             <tr>
 												<th>Phim</th>
-                                                <th>Ngày</th>
+                                                <th>Rạp</th>
+												<th>Ngày</th>
 												<th>Thời gian</th>
                                                 <th>Thao tác</th>
                                             </tr>
@@ -23,13 +24,16 @@
 												<td>
                                                     <h5 class="m-0 font-weight-normal">{{$xuatchieu->tenphim}}</h5>
                                                 </td>
-												
+												<td>
+                                                    <h5 class="m-0 font-weight-normal">{{$xuatchieu->tenrap}}</h5>
+                                                </td>
                                                 <td>
                                                     <h5 class="m-0 font-weight-normal">{{$xuatchieu->dmy}}</h5>
                                                 </td>
 												<td>
                                                     <h5 class="m-0 font-weight-normal">{{$xuatchieu->gio}}</h5>
                                                 </td>
+												
 												
 												
 												

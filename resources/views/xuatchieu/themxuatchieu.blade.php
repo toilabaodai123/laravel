@@ -36,11 +36,19 @@
 														@endforeach
 											</select>
 											<label for="simpleinput" style="color:red">@error('phim'){{$message}}@enderror</label><br>
+											<div class="form-group mb-3">
+                                                <label for="simpleinput">Rạp</label>
+                                                <select name="rap" class="form-control" id="example-select" style="width:100px">
+													@foreach($dsrap as $rap)<option value="{{$rap->id}}">{{$rap->tenrap}} </option>@endforeach
+												</select>
+                                            </div>
+											<label for="simpleinput" style="color:red">@error('rap'){{$message}}@enderror</label><br>
                                             <div class="form-group mb-3">
                                                 <label for="simpleinput">Ngày</label>
                                                 <input name="dmy" type="date" id="simpleinput" class="form-control">
                                             </div>
 											<label for="simpleinput" style="color:red">@error('dmy'){{$message}}@enderror</label><br>
+											
 											<label for="simpleinput">Thời gian</label>
 											<select name="gio" class="form-control" id="example-select" style="width:100px">
 														

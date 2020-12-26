@@ -94,21 +94,6 @@
 								
                                 <a href="#">
 								
-                                    <i class="la la-dashboard"></i>Khách Hàng <div class="arrow-down"></div></a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="{{url('danhsachkhachhang')}}">Danh sách khách hàng</a>
-                                    </li>
-									
-                                    <li>
-                                        <a href="{{url('themkhachhang')}}">Thêm khách hàng</a>
-                                    </li>
-                                </ul>
-                            </li>
-							<li class="has-submenu">
-								
-                                <a href="#">
-								
                                     <i class="la la-dashboard"></i>Xuất chiếu <div class="arrow-down"></div></a>
                                 <ul class="submenu">
                                     <li>
@@ -126,24 +111,33 @@
 								
                                     <i class="la la-dashboard"></i>Ghế <div class="arrow-down"></div></a>
                                 <ul class="submenu">
-                                    <li>
-                                        <a href="{{url('danhsachghe')}}">Danh sách Ghế</a>
-                                    </li>
-									
-									<li>
-                                        <a href="{{url('danhsachthoigianghe')}}">Danh sách lịch của Ghế</a>
-                                    </li>
-									
-                                    <li>
-                                        <a href="{{url('themghe')}}">Thêm ghế</a>
-                                    </li>
-									
-									<li>
-                                        <a href="{{url('danhsachloaighe')}}">Danh sách loại ghế</a>
-                                    </li>
-									<li>
-                                        <a href="{{url('themloaighe')}}">Thêm loại ghế</a>
-                                    </li>
+										 <li class="has-submenu">
+											<a href="#">
+												<i class="la la-dashboard"></i>Quản lý ghế <div class="arrow-down"></div></a>
+											<ul class="submenu">
+												<li>
+													<a href="{{url('danhsachghe')}}">Danh sách Ghế</a>
+												</li>
+												<li>
+													<a href="{{url('danhsachthoigianghe')}}">Danh sách lịch của Ghế</a>
+												</li>
+												                                    <li>
+													<a href="{{url('themghe')}}">Thêm ghế</a>
+												</li>
+											</ul>
+										</li>
+										<li class="has-submenu">
+													<a href="#">
+												<i class="la la-dashboard"></i>Quản lý loại ghế <div class="arrow-down"></div></a>
+											<ul class="submenu">
+												<li>
+													<a href="{{url('danhsachloaighe')}}">Danh sách loại ghế</a>
+												</li>
+												<li>
+													<a href="{{url('themloaighe')}}">Thêm loại ghế</a>
+												</li>
+											</ul>
+										</li>
                                 </ul>
                             </li>
 							<li class="has-submenu">
@@ -183,6 +177,18 @@
 												</ul>
 											</li>
 											<li class="has-submenu">
+													<a href="#">
+												<i class="la la-dashboard"></i>Quản lý loại ghế <div class="arrow-down"></div></a>
+												<ul class="submenu">
+												<li>
+													<a href="{{url('danhsachloaighe')}}">Danh sách loại ghế</a>
+												</li>
+												<li>
+													<a href="{{url('themloaighe')}}">Thêm loại ghế</a>
+												</li>
+												</ul>
+											</li>
+											<li class="has-submenu">
 											<a href="#">
 												<i class="la la-dashboard"></i>Quản lý rạp <div class="arrow-down"></div></a>
 												<ul class="submenu">
@@ -191,6 +197,19 @@
 												</li>
 												<li>
 												<a href="{{url('themrap')}}">Thêm rạp</a>
+												</li>
+												</ul>
+											</li>
+											<li class="has-submenu">
+											<a href="#">
+												<i class="la la-dashboard"></i>Quản lý khách hàng <div class="arrow-down"></div></a>
+												<ul class="submenu">
+												<li>
+													<a href="{{url('danhsachkhachhang')}}">Danh sách khách hàng</a>
+												</li>
+									
+												<li>
+													<a href="{{url('themkhachhang')}}">Thêm khách hàng</a>
 												</li>
 												</ul>
 											</li>

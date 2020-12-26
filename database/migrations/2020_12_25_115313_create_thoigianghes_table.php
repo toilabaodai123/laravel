@@ -27,6 +27,10 @@ class CreateThoigianghesTable extends Migration
 			$table->foreign('phim')
 				  ->references('id')
 				  ->on('phims');
+			$table->biginteger('rap')->unsigned();
+			$table->foreign('rap')
+				  ->references('id')
+				  ->on('raps');
             $table->timestamps();
         });
     }

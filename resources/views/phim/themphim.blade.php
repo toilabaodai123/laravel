@@ -49,7 +49,9 @@
 														@endforeach
 												</select>
 												<label for="simpleinput" style="color:red">@error('tendaodien'){{$message}}@enderror</label><br>
-												
+												<select name="giaphim" class="form-control" id="example-select" style="width:100px">
+														<option >50000</option>
+												</select>
 											<div class="col-lg-6">
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>
 											</div>

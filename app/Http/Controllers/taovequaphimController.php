@@ -20,6 +20,7 @@ class taovequaphimController extends Controller
 		$dsxuatchieu = xuatchieu::all();
 		$dskhachhang = khachhang::all();
 		
+		
 		//return view ('ve.themvequaphim',compact('dsphim','dsghe','dsxuatchieu','dskhachhang'));
 		return redirect('ve.themvequaphim',compact('dsphim','dsghe','dsxuatchieu','dskhachhang'))->with('message','Thêm thành công vé');
 	}
@@ -40,6 +41,8 @@ class taovequaphimController extends Controller
 		$dsthoigianghe->thoigian=request('xuatchieu');
 		$dsthoigianghe->ghe=request('ghe');
 		$dsthoigianghe->phim=request('phim');
+		$dsthoigianghe->rap=request('rap');
+		$dsve->rap=request('rap');
 		$datathoigianghe = thoigianghe::all();
 		$a='';
 		$dataphim = phim::where('id',$dsve->phim)->get();
@@ -55,7 +58,7 @@ class taovequaphimController extends Controller
 		foreach($dataxuatchieu as $xuatchieu){$c = $xuatchieu->id;};
 		//dd($c.'=========='.$dsve->xuatchieu);
 		foreach($datathoigianghe as $data){
-		if($data->thoigian == $dsve->xuatchieu && $data->ghe == $dsve->ghe && $data->phim == $dsve->phim)
+		if($data->thoigian == $dsve->xuatchieu && $data->ghe == $dsve->ghe && $data->phim == $dsve->phim&& $data->rap == $dsve->rap)
 			return redirect('/themvequaphim/'.$dsve->phim)->with('message','Ghế đã có người đặt');
 		else
 			continue;

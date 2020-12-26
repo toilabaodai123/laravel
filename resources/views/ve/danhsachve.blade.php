@@ -16,7 +16,7 @@
 												<th>Ghế</th>
 												<th>Ngày chiếu</th>
 												<th>Thời gian</th>
-                                                <th>Thao tác</th>
+                                                <th hidden>Thao tác</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -45,7 +45,7 @@
 												
 												
 												
-                                                <td>
+                                                <td hidden>
                                                     <a href="ve/{{$ve->id}}" class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil">Sửa</i></a>
 													<form action="ve/{{$ve->id}}" method="POST">
 														@csrf

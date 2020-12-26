@@ -21,6 +21,10 @@ class CreateXuatchieusTable extends Migration
 			$table->foreign('phim')
 				  ->references('id')
 				  ->on('phims');
+			$table->BigInteger('rap')->unsigned();
+			$table->foreign('rap')
+				  ->references('id')
+				  ->on('raps');
 			
             $table->timestamps();
         });

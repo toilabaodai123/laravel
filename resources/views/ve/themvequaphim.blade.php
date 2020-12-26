@@ -35,6 +35,11 @@
 														<option selected value="{{$dsphim->id}}" >{{$dsphim->tenphim}}</option>
 												</select>
 												<label for="simpleinput" style="color:red">@error('phim'){{$message}}@enderror</label><br>
+												<label for="simpleinput">Tên rạp</label>
+												<select name="rap" class="form-control" id="example-select" style="width:200px">
+														@foreach($dsrap as $rap)<option value="{{$rap->id}}">{{$rap->tenrap}}</option>@endforeach
+												</select>
+												<label for="simpleinput" style="color:red">@error('phim'){{$message}}@enderror</label><br>
 												<label for="simpleinput">Ghế</label>
 												<select name="ghe" class="form-control" id="example-select" style="width:200px">
 														@foreach($dsghe as $ghe)

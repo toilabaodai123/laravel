@@ -20,8 +20,10 @@ class loaigheController extends Controller
 		
 		$valid = request()->validate([
 			'tenloaighe'=>'required',
+			'giaghe' => 'required',
 		],[
 			'tenloaighe.required' => "Chưa nhập tên loại ghế!",
+			'giaghe.required' => "Chưa có giá tiền loại ghế!",
 
 		]);
 		
@@ -32,6 +34,8 @@ class loaigheController extends Controller
 		$dsloaighe = new loaighe();
 		
 		$dsloaighe->tenloaighe=request('tenloaighe');
+		$dsloaighe->giaghe = request('giaghe');
+		
 		
 		
 		

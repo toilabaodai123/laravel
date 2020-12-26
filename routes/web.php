@@ -110,7 +110,8 @@ Route::delete('/ghe/{id}','gheController@destroy');
 Route::get('/themxuatchieu', function () {
 	$dsxuatchieu = xuatchieu::all();
 	$dsphim = phim::all();
-    return view('xuatchieu.themxuatchieu',compact('dsphim'));
+	$dsrap = rap::all();
+    return view('xuatchieu.themxuatchieu',compact('dsphim','dsrap'));
 });
 Route::get('danhsachxuatchieu','xuatchieuController@index');
 Route::get('/xuatchieu/{id}','xuatchieuController@show');
@@ -158,8 +159,9 @@ Route::get('themvequaphim/{id}', function ($id) {
 		$dsxuatchieu2 = xuatchieu::where('phim',$dsphim->id)->get();
 		//dd($dsxuatchieu2);
 		$dskhachhang = khachhang::all();
+		$dsrap = rap::all();
 		
-		return view ('ve.themvequaphim',compact('dsphim','dsghe','dsxuatchieu','dskhachhang','dsxuatchieu2'));
+		return view ('ve.themvequaphim',compact('dsphim','dsghe','dsxuatchieu','dskhachhang','dsxuatchieu2','dsrap'));
 }); 
 Route::post('/danhsachvequaphim/{id}','taovequaphimController@store');
 

@@ -14,7 +14,8 @@ class xuatchieuController extends Controller
 		$dsphim = phim::all();
 		$test = DB::table('xuatchieus')
 				->join('phims','xuatchieus.phim','phims.id')
-				->select('xuatchieus.id','phims.tenphim','xuatchieus.dmy','xuatchieus.gio')
+				->join('raps','xuatchieus.rap','raps.id')
+				->select('xuatchieus.id','phims.tenphim','xuatchieus.dmy','xuatchieus.gio','raps.tenrap')
 				->get();
 				
 		return view('xuatchieu.danhsachxuatchieu',
@@ -42,10 +43,13 @@ class xuatchieuController extends Controller
 		$valid = request()->validate([
 			'phim'=>'required',
 			'dmy'=>'date',
+			'rap'=>'required',
 		],[
 			'phim.required' => "Chưa chọn phim!",
 			
 			'date' => "Chưa chọn ngày!",
+			
+			'rap.required' => "Chưa chọn rạp!",
 			
 		]);
 		$data1 = phim::all();
@@ -54,10 +58,11 @@ class xuatchieuController extends Controller
 		$xuatchieu->phim=request('phim');
 		$xuatchieu->dmy=request('dmy');
 		$xuatchieu->gio=request('gio');
+		$xuatchieu->rap = request('rap');
 		
 		
 			foreach($data2 as $xc){
-				if($xuatchieu->phim == $xc->phim && $xc->dmy == $xuatchieu->dmy && $xc->gio == $xuatchieu->gio)
+				if($xuatchieu->phim == $xc->phim && $xc->dmy == $xuatchieu->dmy && $xc->gio == $xuatchieu->gio && $xc->rap == $xuatchieu->rap)
 					//dd($xuatchieu->phim.'  '.$xc->phim.'\n'.$xc->dmy.'  '.$xuatchieu->dmy.'\n'.$xc->gio.' '.$xuatchieu->gio);
 					return redirect('/themxuatchieu')->with('message','Tồn tại xuất chiếu ');
 				else

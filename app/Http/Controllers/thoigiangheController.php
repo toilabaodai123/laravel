@@ -7,6 +7,7 @@ use App\thoigianghe;
 use App\phim;
 use App\ghe;
 use App\xuatchieu;
+use App\rap;
 use DB;
 
 class thoigiangheController extends Controller
@@ -16,6 +17,7 @@ class thoigiangheController extends Controller
 		$dsthoigianghe = thoigianghe::all();	
 		$dsphim = phim::all();
 		$dsghe = ghe::all();
+		$dsrap = rap::all();
 		$dsxuatchieu = xuatchieu::all();
 		$test2=thoigianghe::all();
 		//dd($test2);
@@ -23,7 +25,8 @@ class thoigiangheController extends Controller
 				->join('phims','thoigianghes.phim','phims.id')
 				->join('ghes','thoigianghes.ghe','ghes.id')
 				->join('xuatchieus','thoigianghes.thoigian','xuatchieus.id')
-				->select('thoigianghes.id','phims.tenphim','ghes.tenghe','xuatchieus.dmy','xuatchieus.dmy')
+				->join('raps','thoigianghes.rap','raps.id')
+				->select('thoigianghes.id','phims.tenphim','ghes.tenghe','xuatchieus.dmy','xuatchieus.dmy','xuatchieus.gio','raps.tenrap')
 				->get();
 		//dd($test);
 		

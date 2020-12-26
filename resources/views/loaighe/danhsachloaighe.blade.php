@@ -11,6 +11,7 @@
                                         <thead class="thead-light">
                                             <tr>
                                                 <th>Tên loại ghế</th>
+												<th>Giá loại ghế</th>
                                                 <th>Thao tác</th>
                                             </tr>
                                         </thead>
@@ -19,6 +20,9 @@
 												<tr>
                                                 <td>
                                                     <h5 class="m-0 font-weight-normal">{{$loaighe->tenloaighe}}</h5>
+                                                </td>
+												<td>
+                                                    <h5 class="m-0 font-weight-normal">{{$loaighe->giaghe}}</h5>
                                                 </td>
 	
 

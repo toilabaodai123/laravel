@@ -24,6 +24,7 @@ class CreatePhimsTable extends Migration
 			$table->foreign('tendaodien')
 				  ->references('id')
 				  ->on('daodiens');
+			$table->integer('giaphim');
             $table->timestamps();
         });
     }
