@@ -29,7 +29,7 @@
 													<h5 class="m-0 font-weight-normal">{{$ve->tenphim}}</h5>
 												</td>
 												<td>
-                                                    <h5 class="m-0 font-weight-normal">Tên khách hàng</h5>
+                                                    <h5 class="m-0 font-weight-normal">{{$ve->taikhoan}}</h5>
                                                 </td>
 												<td>
 													<h5 class="m-0 font-weight-normal">{{$ve->tenghe}}</h5>

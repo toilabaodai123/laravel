@@ -24,6 +24,7 @@ class CreateThoigianghesTable extends Migration
 			$table->foreign('phim')
 				  ->references('id')
 				  ->on('phims');
+			$table->integer('gio');
             $table->timestamps();
         });
     }

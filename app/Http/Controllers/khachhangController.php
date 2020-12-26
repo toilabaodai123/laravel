@@ -24,8 +24,26 @@ class khachhangController extends Controller
 	
 	public function store(){
 		
-		$khachhang = new khachhang();
+		$valid = request()->validate([
+			'taikhoan'=>'required|alpha|min:5|max:20',
+			'matkhau'=>'required|alpha',
+			'hoten' => 'required|alpha'
+		],[
+			'taikhoan.required' => "Chưa nhập tài khoản!",
+			'taikhoan.alpha' => "Tên loại phim chỉ chứa KÝ TỰ CHỮ thường!",
+			'taikhoan.min' => "Tài khoản phải chứa ít nhất 5 KÝ TỰ" ,
+			'taikhoan.max' => "Tài khoản không được quá 20 KÝ TỰ",
+			
+			'matkhau.required' => "Chưa nhập mật khẩu!",
+			'matkhau.alpha' => "Mật khẩu chỉ chứa KÝ TỰ CHỮ thường!",
+			
+			'hoten.required' => "Chưa nhập họ tên!",
+			'hoten.alpha' => "Họ tên chỉ chứa KÝ TỰ CHỮ thường!",
+		]);
 		
+		
+		
+		$khachhang = new khachhang();
 		$khachhang->taikhoan=request('taikhoan');
 		$khachhang->matkhau=request('matkhau');
 		$khachhang->hoten=request('hoten');

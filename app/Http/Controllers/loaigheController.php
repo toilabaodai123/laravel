@@ -16,9 +16,37 @@ class loaigheController extends Controller
 	}
 	public function store(){
 		
+		
+		
+		$valid = request()->validate([
+			'tenloaighe'=>'required',
+		],[
+			'tenloaighe.required' => "Chưa nhập tên loại ghế!",
+
+		]);
+		
+		
+		
+		
+		
 		$dsloaighe = new loaighe();
 		
 		$dsloaighe->tenloaighe=request('tenloaighe');
+		
+		
+		
+		$data = loaighe::all();
+		
+		foreach($data as $dt){
+			if($dt->tenloaighe == $dsloaighe->tenloaighe)
+				return redirect('/themloaighe')->with('message','Tồn tại loại ghế '.$dsloaighe->tenloaighe);
+			else
+				continue;
+		}
+		
+		
+		
+		
 		$dsloaighe->save();
 		
 		return redirect('/themloaighe')->with('message','Thêm thành công loại ghế '.$dsloaighe->tenloaighe);

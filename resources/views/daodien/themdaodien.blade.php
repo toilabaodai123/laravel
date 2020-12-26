@@ -31,8 +31,10 @@
                                         <form action="{{url('/danhsachdaodien')}}" method="post">
 											@csrf
                                             <div class="form-group mb-3">
+												
                                                 <label for="simpleinput">Tên đạo diễn</label>
                                                 <input name="tendaodien" type="text" id="simpleinput" class="form-control">
+												<label for="simpleinput" style="color:red">@error('tendaodien'){{$message}}@enderror</label>
                                             </div>
 											<div class="col-lg-6">
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>

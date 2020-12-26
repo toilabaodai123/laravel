@@ -35,15 +35,16 @@
 												
 												
                                                 <td>
-                                                    <a href="themvequaphim/{{$phim->id}}" class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil">Test</i></a>
-													<a href="phim/{{$phim->id}}" class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil">Sửa</i></a>
+                                                    <a href="themvequaphim/{{$phim->id}}" class="btn btn-xs btn-secondary" style="background-color:green;width:70px" ><i class="mdi mdi-pencil" >Tạo vé</i></a>
+													
 													<form action="phim/{{$phim->id}}" method="POST">
 														@csrf
 														@method('DELETE')
-														<button type="submit" class="btn btn-xs btn-secondary">
+														<button type="submit" class="btn btn-xs btn-secondary" style="background-color:red;width:70px">
 															<i class="mdi mdi-pencil">Xoá</i>
 														</button>
 													</form>
+													<a href="phim/{{$phim->id}}" class="btn btn-xs btn-secondary" style="background-color:blue;width:70px" ><i class="mdi mdi-pencil">Sửa</i></a>
                                                 </td>
                                             </tr>
 											@endforeach

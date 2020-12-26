@@ -36,12 +36,35 @@ class xuatchieuController extends Controller
 		compact('dsxuatchieu','dsphim','dsphim2','test'));
 	}
 	public function store(){
+		
+		
+		
+		$valid = request()->validate([
+			'phim'=>'required',
+			'dmy'=>'date',
+		],[
+			'phim.required' => "Chưa chọn phim!",
+			
+			'date' => "Chưa chọn ngày!",
+			
+		]);
+		$data1 = phim::all();
+		$data2 = xuatchieu::all();
 		$xuatchieu = new xuatchieu();
 		$xuatchieu->phim=request('phim');
 		$xuatchieu->dmy=request('dmy');
 		$xuatchieu->gio=request('gio');
-		$xuatchieu->save();
 		
+		
+			foreach($data2 as $xc){
+				if($xuatchieu->phim == $xc->phim && $xc->dmy == $xuatchieu->dmy && $xc->gio == $xuatchieu->gio)
+					//dd($xuatchieu->phim.'  '.$xc->phim.'\n'.$xc->dmy.'  '.$xuatchieu->dmy.'\n'.$xc->gio.' '.$xuatchieu->gio);
+					return redirect('/themxuatchieu')->with('message','Tồn tại xuất chiếu ');
+				else
+					continue;	
+					}
+		
+		$xuatchieu->save();
 		return redirect('/themxuatchieu')->with('message','Thêm thành công xuất chiếu ');
 	}
 	

@@ -13,7 +13,7 @@ class thoigiangheController extends Controller
 {
     public function index(){
 		
-		$dsthoigianghe = thoigianghe::all();
+		$dsthoigianghe = thoigianghe::all();	
 		$dsphim = phim::all();
 		$dsghe = ghe::all();
 		$dsxuatchieu = xuatchieu::all();
@@ -22,9 +22,12 @@ class thoigiangheController extends Controller
 		$test = DB::table('thoigianghes')
 				->join('phims','thoigianghes.phim','phims.id')
 				->join('ghes','thoigianghes.ghe','ghes.id')
-				->join('xuatchieus','thoigianghes.thoigian','xuatchieus.dmy')
-				->select('thoigianghes.id','phims.tenphim','ghes.tenghe','xuatchieus.dmy','xuatchieus.gio')
-				->get();	
+				//->join('xuatchieus','thoigianghes.thoigian','xuatchieus.dmy')
+				->select('thoigianghes.id','phims.tenphim','ghes.tenghe','thoigianghes.gio')//,'xuatchieus.dmy','thoigianghes.gio')
+				->get();
+		//dd($test);
+		
+			
 			return view('thoigianghe.danhsachthoigianghe',
 			compact('dsthoigianghe','dsphim','dsghe','dsxuatchieu','test'));
 		

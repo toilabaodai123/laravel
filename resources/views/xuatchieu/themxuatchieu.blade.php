@@ -35,10 +35,12 @@
 														<option value="{{$phim->id}}">{{$phim->tenphim}}</option>
 														@endforeach
 											</select>
+											<label for="simpleinput" style="color:red">@error('phim'){{$message}}@enderror</label><br>
                                             <div class="form-group mb-3">
                                                 <label for="simpleinput">Ngày</label>
                                                 <input name="dmy" type="date" id="simpleinput" class="form-control">
                                             </div>
+											<label for="simpleinput" style="color:red">@error('dmy'){{$message}}@enderror</label><br>
 											<label for="simpleinput">Thời gian</label>
 											<select name="gio" class="form-control" id="example-select" style="width:100px">
 														
@@ -68,9 +70,7 @@
 														<option >24</option>
 												
 												</select>
-											<div class="col-lg-6">
-											<label for="simpleinput">Phim</label>
-
+												<label for="simpleinput" style="color:red">@error('gio'){{$message}}@enderror</label><br>
 											<div class="col-lg-6">
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>
 											</div>

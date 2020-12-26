@@ -33,10 +33,13 @@
                                             <div class="form-group mb-3">
                                                 <label for="simpleinput">Tài khoản</label>
                                                 <input name="taikhoan" type="text" id="simpleinput" class="form-control">
+												<label for="simpleinput" style="color:red">@error('taikhoan'){{$message}}@enderror</label><br>
 												<label for="simpleinput">Mật khẩu</label>
                                                 <input name="matkhau" type="text" id="simpleinput" class="form-control">
+												<label for="simpleinput" style="color:red">@error('matkhau'){{$message}}@enderror</label><br>
 												<label for="simpleinput">Họ tên</label>
                                                 <input name="hoten" type="text" id="simpleinput" class="form-control">
+												<label for="simpleinput" style="color:red">@error('hoten'){{$message}}@enderror</label><br>
                                             </div>
 											<div class="col-lg-6">
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>

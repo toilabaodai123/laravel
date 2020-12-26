@@ -25,7 +25,23 @@ class daodienController extends Controller
 	
 	}
 	
+	
+	public function message(){
+		return [
+			'tendaodien.required' => " Nhập tên đạo diễn!"
+		];
+	}
+	
 	public function store(){
+		
+		$valid = request()->validate([
+			'tendaodien'=>'required|alpha'
+		],[
+			'tendaodien.required' => "Chưa nhập tên đạo diễn!",
+			'tendaodien.alpha' => "Tên đạo diễn chỉ chứa ký tự thường!"
+		]);
+		
+		
 		
 		$daodien = new daodien();
 		$bro = daodien::all();
@@ -36,9 +52,6 @@ class daodienController extends Controller
 				continue;
 		else{
 			return redirect('/themdaodien')->with('message','Tồn tại đạo diễn '.$daodien->tendaodien);}
-			
-					
-		
 		}
 		$daodien->save();
 		return redirect('/themdaodien')->with('message','Thêm thành công đạo diễn '.$daodien->tendaodien);

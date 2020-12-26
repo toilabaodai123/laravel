@@ -21,7 +21,7 @@
         <link href="{{url('/css/app.min.css')}}" rel="stylesheet" type="text/css" />
 
     </head>
-
+	
     <body>
 
         <!-- Navigation Bar-->
@@ -54,39 +54,28 @@
             </div>
             <!-- end Topbar -->
 
-            <div class="topbar-menu">
-                <div class="container-fluid">
+            <div class="topbar-menu" >
+                <div class="container-fluid" >
                     <div id="navigation">
                         <!-- Navigation Menu-->
-                        <ul class="navigation-menu">
-
-                            <li class="has-submenu">
-								
-                                <a href="#">
-								
-                                    <i class="la la-dashboard"></i>Đạo diễn <div class="arrow-down"></div></a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="{{url('danhsachdaodien')}}">Danh sách đạo diễn</a>
-                                    </li>
-									
-                                    <li>
-                                        <a href="{{url('themdaodien')}}">Thêm đạo diễn</a>
-                                    </li>
-                                </ul>
-                            </li>
-							
+                        <ul class="navigation-menu" >
 							<li class="has-submenu">
-                                <a href="#">
+                                <a href="{{url('danhsachphim')}}" >
                                     <i class="la la-dashboard"></i>Phim <div class="arrow-down"></div></a>
-                                <ul class="submenu">
-								<li>
-                                        <a href="{{url('danhsachphim')}}">Danh sách phim</a>
-                                </li>
-								<li>
-                                        <a href="{{url('themphim')}}">Thêm phim</a>
-                                </li>	
+                                <ul class="submenu">	
 								
+								 <li class="has-submenu">
+											<a href="#">
+												<i class="la la-dashboard"></i>Quản lý phim <div class="arrow-down"></div></a>
+											<ul class="submenu">
+												<li>
+											<a href="{{url('danhsachphim')}}">Danh sách phim</a>
+												</li>
+											<li>
+												<a href="{{url('themphim')}}">Thêm phim</a>
+											</li>
+											</ul>
+								</li>
 								 <li class="has-submenu">
 											<a href="#">
 												<i class="la la-dashboard"></i>Quản lý loại phim <div class="arrow-down"></div></a>
@@ -99,13 +88,6 @@
 												</li>
 											</ul>
 								</li>
-								
-                                    <li>
-                                        <a href="{{url('danhsachloaiphim')}}">Danh sách loại phim</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{url('themloaiphim')}}">Thêm loại phim</a>
-                                    </li>
                                 </ul>
                             </li>
 							<li class="has-submenu">
@@ -168,23 +150,8 @@
 								
                                 <a href="#">
 								
-                                    <i class="la la-dashboard"></i>Rạp <div class="arrow-down"></div></a>
-                                <ul class="submenu">
-                                    <li>
-                                        <a href="{{url('danhsachrap')}}">Danh sách Rạp</a>
-                                    </li>
-									
-                                    <li>
-                                        <a href="{{url('themrap')}}">Thêm Rạp</a>
-                                    </li>
-                                </ul>
-                            </li>
-							<li class="has-submenu">
-								
-                                <a href="#">
-								
                                     <i class="la la-dashboard"></i>Vé xem phim <div class="arrow-down"></div></a>
-                                <ul class="submenu">
+									<ul class="submenu">
                                     <li>
                                         <a href="{{url('danhsachve')}}">Danh sách Vé xem phim</a>
                                     </li>
@@ -192,7 +159,43 @@
                                     <li>
                                         <a href="{{url('themve')}}">Thêm Vé(-)</a>
                                     </li>
+									<li>
+                                        <a href="{{url('danhsachphim')}}">Thêm vé qua phim</a>
+                                    </li>
                                 </ul>
+                            </li>
+							<li class="has-submenu" style="left:550px">
+								
+                                <a href="#">
+								
+                                    <i class="la la-dashboard"></i>Khác <div class="arrow-down"></div></a>
+									<ul class="submenu">
+											<li class="has-submenu">
+											<a href="#">
+												<i class="la la-dashboard"></i>Quản lý đạo diễn <div class="arrow-down"></div></a>
+												<ul class="submenu">
+												<li>
+												<a href="{{url('danhsachdaodien')}}">Danh sách đạo diễn</a>
+												</li>
+												<li>
+												<a href="{{url('themdaodien')}}">Thêm đạo diễn</a>
+												</li>
+												</ul>
+											</li>
+											<li class="has-submenu">
+											<a href="#">
+												<i class="la la-dashboard"></i>Quản lý rạp <div class="arrow-down"></div></a>
+												<ul class="submenu">
+												<li>
+												<a href="{{url('danhsachrap')}}">Danh sách rạp</a>
+												</li>
+												<li>
+												<a href="{{url('themrap')}}">Thêm rạp</a>
+												</li>
+												</ul>
+											</li>
+									</ul>
+									
                             </li>
                         </ul>
                         <!-- End navigation menu -->

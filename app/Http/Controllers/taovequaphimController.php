@@ -32,6 +32,15 @@ class taovequaphimController extends Controller
 		$dsve->khachhang=request('khachhang');
 		$dsxuatchieu = xuatchieu::get('dmy');
 		$dsthoigianghe = new thoigianghe();
+		$abc = xuatchieu::where('id',$dsve->xuatchieu)->get('gio');
+		$lol = 0; 
+		
+	
+		foreach ($abc as $a){$lol = $a->gio;}
+		//dd($lol);
+		//{
+		//	$lol = $a->gio;
+		//};
 		$test = DB::table('xuatchieus')
 				  ->select('dmy')
 				  ->where('id','=',$dsve->xuatchieu)
@@ -39,13 +48,9 @@ class taovequaphimController extends Controller
 		foreach($test as $a){
 			$dsthoigianghe->thoigian= $a->dmy;
 		}
-		
-		
-		
-		
+		$dsthoigianghe->gio= $lol;
 		$dsthoigianghe->ghe=request('ghe');
 		$dsthoigianghe->phim=request('phim');
-		
 		$datathoigianghe = thoigianghe::all();
 		$dataghe = ghe::all();
 		$dataghe2 = ghe::where('id',$dsve->ghe)->get();
@@ -69,10 +74,11 @@ class taovequaphimController extends Controller
 		}	
 
 
+		
 		$dsthoigianghe->save();
 		$dsve->save();
 		return redirect('/themvequaphim/'.$dsve->phim)->with('message','Thêm thành công vé');
-		
 		}
+	
 
 }

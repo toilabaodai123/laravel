@@ -25,6 +25,13 @@ class loaiphimController extends Controller
 	
 	public function store(){
 		
+		$valid = request()->validate([
+			'tenloaiphim'=>'required|alpha'
+		],[
+			'tenloaiphim.required' => "Chưa nhập tên loại phim!",
+			'tenloaiphim.alpha' => "Tên loại phim chỉ chứa ký tự thường!"
+		]);
+		
 		$loaiphim = new loaiphim();
 		
 		$loaiphim->tenloaiphim=request('tenloaiphim');

@@ -52,6 +52,27 @@ class phimController extends Controller
 		compact('dsphim','dsloaiphim','dsdaodien','dsloaiphim2','dsdaodien2'));
 	}
 	public function store(){
+		
+		$valid = request()->validate([
+			'tenphim'=>'required',
+			'tenloaiphim'=>'required',
+			'tendaodien' => 'required'
+		],[
+			'tenphim.required' => "Chưa nhập tên phim!",
+			
+			'tenloaiphim.required' => "Chưa nhập loại phim!",
+			
+			'tendaodien.required' => "Chưa nhập đạo diễn!",
+		]);
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		$phim = new phim();
 		$phim->tenphim=request('tenphim');
 		$phim->tenloaiphim=request('tenloaiphim');

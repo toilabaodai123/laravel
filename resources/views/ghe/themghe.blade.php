@@ -34,19 +34,21 @@
                                                 <label for="simpleinput">Tên ghế</label>
                                                 <input name="tenghe" type="text" id="simpleinput" class="form-control">
                                             </div>
+											<label for="simpleinput" style="color:red">@error('tenghe'){{$message}}@enderror</label><br>
 												<label for="simpleinput">Loại ghế</label>
 												<select name="loaighe" class="form-control" id="example-select" style="width:100px">
 														@foreach($dsloaighe as $loaighe)
 														<option value="{{$loaighe->id}}">{{$loaighe->tenloaighe}}</option>
 														@endforeach
 												</select>
+												<label for="simpleinput" style="color:red">@error('loaighe'){{$message}}@enderror</label><br>
 												<label for="simpleinput">Rạp</label>
 												<select name="rap" class="form-control" id="example-select" style="width:100px">
 														@foreach($dsrap as $rap)
 														<option value="{{$rap->id}}">{{$rap->tenrap}}</option>
 														@endforeach
 												</select>
-												
+												<label for="simpleinput" style="color:red">@error('rap'){{$message}}@enderror</label><br>
 											<div class="col-lg-6">
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>
 											</div>

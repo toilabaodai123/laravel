@@ -37,10 +37,41 @@ class gheController extends Controller
 	}
 	
 	public function store(){
+		
+		
+		$valid = request()->validate([
+			'tenghe'=>'required',
+			'loaighe'=>'required',
+			'rap' => 'required'
+		],[
+			'tenghe.required' => "Chưa nhập tên ghế!",
+			
+			'loaighe.required' => "Chưa chọn loại ghế!",
+			
+			'rap.required' => "Chưa chọn rạp!",
+		]);
+		
+		
+		$a = 'a';
+		//dd(strtoupper($a));
+		
 		$ghe = new ghe();
 		$ghe->tenghe=request('tenghe');
 		$ghe->loaighe=request('loaighe');
 		$ghe->rap=request('rap');
+		
+		
+		$data1 = ghe::all();
+		foreach($data1 as $data){
+			$b = strtoupper($data->tenghe);
+			$bb = strtoupper($ghe->tenghe);
+			if($b == $bb){
+			return redirect('/themghe')->with('message','Đã tồn tại ghế '.$ghe->tenghe);}
+			else
+				continue;
+		}
+		
+		
 		$ghe->save();
 		
 		return redirect('/themghe')->with('message','Thêm thành công ghế '.$ghe->tenghe);

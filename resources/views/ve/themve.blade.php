@@ -36,18 +36,21 @@
 														<option value="{{$phim->id}}">{{$phim->tenphim}}</option>
 														@endforeach
 												</select>
+												<label for="simpleinput" style="color:red">@error('phim'){{$message}}@enderror</label><br>
 												<label for="simpleinput">Ghế</label>
 												<select name="ghe" class="form-control" id="example-select" style="width:200px">
 														@foreach($dsghe as $ghe)
 														<option value="{{$ghe->id}}">{{$ghe->tenghe}}</option>
 														@endforeach
 												</select>
+												<label for="simpleinput" style="color:red">@error('ghe'){{$message}}@enderror</label><br>
 												<label for="simpleinput">Xuất chiếu</label>
 												<select name="xuatchieu" class="form-control" id="example-select" style="width:200px">
 														@foreach($dsxuatchieu as $xuatchieu)
 															<option value="{{$xuatchieu->id}}">{{$xuatchieu->dmy}} lúc {{$xuatchieu->gio}} giờ</option>
 														@endforeach
 												</select>
+												<label for="simpleinput" style="color:red">@error('xuatchieu'){{$message}}@enderror</label><br>
 												<label for="simpleinput">Khách hàng</label>
 												<select name="khachhang" class="form-control" id="example-select" style="width:200px">
 												
@@ -55,6 +58,7 @@
 														<option value="{{$khachhang->taikhoan}}">{{$khachhang->hoten}}</option>
 														@endforeach
 												</select>
+												<label for="simpleinput" style="color:red">@error('khachhang'){{$message}}@enderror</label><br>
 												
 											<div class="col-lg-6">
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>

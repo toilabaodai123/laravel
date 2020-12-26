@@ -33,6 +33,7 @@
                                             <div class="form-group mb-3">
                                                 <label for="simpleinput">Tên loại ghế</label>
                                                 <input name="tenloaighe" type="text" id="simpleinput" class="form-control">
+												<label for="simpleinput" style="color:red">@error('tenloaighe'){{$message}}@enderror</label><br>
                                             </div>
 											<div class="col-lg-6">
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>

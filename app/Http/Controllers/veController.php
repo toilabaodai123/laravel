@@ -50,6 +50,32 @@ class veController extends Controller
 	}
 	
 		public function store(){
+			
+			
+			
+			
+			$valid = request()->validate([
+			'phim'=>'required',
+			'ghe'=>'required',
+			'xuatchieu'=>'required',
+			'khachhang'=>'required',
+		],[
+			'phim.required' => "Chưa chọn phim!",
+			'ghe.required' => "Chưa chọn ghế!",
+			'xuatchieu.required' => "Chưa chọn xuất chiếu!",
+			'khachhang.required' => "Chưa chọn khách hàng!",
+
+		]);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		$dsve = new ve();
 		$dsve->phim=request('phim');
 		$dsve->ghe=request('ghe');
