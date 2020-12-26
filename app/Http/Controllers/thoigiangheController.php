@@ -22,8 +22,8 @@ class thoigiangheController extends Controller
 		$test = DB::table('thoigianghes')
 				->join('phims','thoigianghes.phim','phims.id')
 				->join('ghes','thoigianghes.ghe','ghes.id')
-				//->join('xuatchieus','thoigianghes.thoigian','xuatchieus.dmy')
-				->select('thoigianghes.id','phims.tenphim','ghes.tenghe','thoigianghes.gio')//,'xuatchieus.dmy','thoigianghes.gio')
+				->join('xuatchieus','thoigianghes.thoigian','xuatchieus.id')
+				->select('thoigianghes.id','phims.tenphim','ghes.tenghe','xuatchieus.dmy','xuatchieus.dmy')
 				->get();
 		//dd($test);
 		

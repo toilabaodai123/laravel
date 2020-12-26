@@ -15,7 +15,10 @@ class CreateThoigianghesTable extends Migration
     {
         Schema::create('thoigianghes', function (Blueprint $table) {
             $table->id();
-			$table->date('thoigian');
+			$table->biginteger('thoigian')->unsigned();
+			$table->foreign('thoigian')
+				  ->references('id')
+				  ->on('xuatchieus');
 			$table->biginteger('ghe')->unsigned();
 			$table->foreign('ghe')
 				  ->references('id')
@@ -24,7 +27,6 @@ class CreateThoigianghesTable extends Migration
 			$table->foreign('phim')
 				  ->references('id')
 				  ->on('phims');
-			$table->integer('gio');
             $table->timestamps();
         });
     }

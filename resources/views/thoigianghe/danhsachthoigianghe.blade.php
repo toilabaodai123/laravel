@@ -14,7 +14,6 @@
 												<th>Tên phim</th>
 												<th>Thời gian</th>
 												<th>Ghế</th>
-												<th>Giờ</th>
                                                 <th>Thao tác</th>
                                             </tr>
                                         </thead>
@@ -28,13 +27,10 @@
                                                     <h5 class="m-0 font-weight-normal">{{$thoigianghe->tenphim}}</h5>
                                                 </td>
 												<td>
-													<h5 class="m-0 font-weight-normal">$thoigianghe->thoigian</h5>
+													<h5 class="m-0 font-weight-normal">{{$thoigianghe->dmy}}</h5>
                                                 </td>
 												<td>
                                                     <h5 class="m-0 font-weight-normal">{{$thoigianghe->tenghe}}</h5>
-                                                </td>
-												<td>
-                                                    <h5 class="m-0 font-weight-normal">{{$thoigianghe->gio	}}</h5>
                                                 </td>
 
 
