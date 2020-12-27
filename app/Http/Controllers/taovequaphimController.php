@@ -28,6 +28,17 @@ class taovequaphimController extends Controller
 	}
 	
 	public function store(){
+		
+		
+		
+		$valid = request()->validate([
+			'ghe'=>'required',
+		],[
+			'ghe.required' => "Chưa chọn ghế!",
+		]);
+		
+		
+		
 		$dsve = new ve();
 		$dsve->phim=request('phim');
 		//$dsve->ghe=request('ghe');
@@ -65,10 +76,7 @@ class taovequaphimController extends Controller
 		$tongtien = $xx+  $xxx + $xxxx;
 		
 		$dsve->tongtienve=$tongtien; */
-		
-		$dsve->tongtienve=0;
-		
-	
+				
 		//$ctvtienphim = phim::where('id',$dsve->phim)->get('giaphim');
 
 		//$dsthoigianghe->ghe=request('ghe');
@@ -114,13 +122,13 @@ class taovequaphimController extends Controller
 		//dd$
 		
 		//$dataidve2 = end($dataidve1);
-		
+		//dd($a);
 		foreach((array)$a as &$d){
 			foreach($datathoigianghe as $data){
 				if( $data->ghe == $d&&  $data->thoigian == $dsve->xuatchieu && $data->phim == $dsve->phim&& $data->rap == $dsve->rap)
-					return redirect('/themvequaphim/'.$dsve->phim)->with('message','Ghế '.$d .'có người đặt');
+					return redirect('/themvequaphim/'.$dsve->phim)->with('message','Ghế có id '.$d .' đãcó người đặt');
 				else
-				continue;
+					continue;
 		}
 		$dsthoigianghe = new thoigianghe();
 		$dsthoigianghe->thoigian=request('xuatchieu');
@@ -134,7 +142,7 @@ class taovequaphimController extends Controller
 		$dschitietve->idghe = $d;
 		
 		//tiền phim
-		/* $ctvtienphim1 = phim::where('id',$dsve->phim)->get();
+		$ctvtienphim1 = phim::where('id',$dsve->phim)->get();
 		$ctvtien1 = 0;
 		foreach($ctvtienphim1 as $a){$ctvtien1 = $a->giaphim;};
 		//dd($ctvtien1);
@@ -151,10 +159,10 @@ class taovequaphimController extends Controller
 		$ctvtien3=0;
 		foreach($ctvtienphim3 as $a){$ctvtien3 = $a->giaxuatchieu;};
 		//dd($ctvtien3.'gia xuat chieu');
-		//$tongtienctv = $ctvtien1 + $ctvtien2 + $ctvtien3; */
+		$tongtienctv = $ctvtien1 + $ctvtien2 + $ctvtien3;
+		//dd($tongtienctv);
 		
-		
-		$dschitietve->tongtienchitiet=0;//$tongtienctv;
+		$dschitietve->tongtienchitiet=$tongtienctv;
 		//dd($tongtienctv);
 		$dsthoigianghe->save();
 		$dschitietve->save();
@@ -167,7 +175,11 @@ class taovequaphimController extends Controller
 			continue;
 		} */
 		
-
+		$dsvetien1 = chitietve::where('idve',$idve)->get();
+		//dd($dsvetien1);
+		$tong =0;
+		foreach($dsvetien1 as $a){$tong = $tong + $a->tongtienchitiet;};
+		$dsve->tongtienve=$tong;
 		$dsve->save();
 
 		
