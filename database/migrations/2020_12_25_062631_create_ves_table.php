@@ -23,10 +23,10 @@ class CreateVesTable extends Migration
 			$table->foreign('phim')
 				  ->references('id')
 				  ->on('phims');
-			$table->biginteger('ghe')->unsigned();
+/* 			$table->biginteger('ghe')->unsigned();
 			$table->foreign('ghe')
 				  ->references('id')
-				  ->on('ghes');
+				  ->on('ghes'); */
 			$table->biginteger('xuatchieu')->unsigned();
 			$table->foreign('xuatchieu')
 				  ->references('id')

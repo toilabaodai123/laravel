@@ -1,5 +1,6 @@
 @extends('layouts.index1')
 @section('content')
+
         <div class="wrapper">
             <div class="container-fluid">
 
@@ -40,13 +41,15 @@
 														@foreach($dsrap as $rap)<option value="{{$rap->id}}">{{$rap->tenrap}}</option>@endforeach
 												</select>
 												<label for="simpleinput" style="color:red">@error('phim'){{$message}}@enderror</label><br>
-												<label for="simpleinput">Ghế</label>
-												<select name="ghe" class="form-control" id="example-select" style="width:200px">
-														@foreach($dsghe as $ghe)
-														<option value="{{$ghe->id}}">{{$ghe->tenghe}}</option>
-														@endforeach
-												</select>
-												<label for="simpleinput" style="color:red">@error('ghe'){{$message}}@enderror</label><br>
+												<div id="idthemghe" class="col-lg-6">
+													<label for="simpleinput">Ghế</label>
+													<select multiple name="ghe[]" class="form-control" id="example-select" style="width:200px">
+															@foreach($dsghe as $ghe)
+															<option value="{{$ghe->id}}">{{$ghe->tenghe}}</option>
+															@endforeach
+													</select>
+													<label for="simpleinput" style="color:red">@error('ghe'){{$message}}@enderror</label><br>
+												</div>
 												<label for="simpleinput">Xuất chiếu</label>
 												<select name="xuatchieu" class="form-control" id="example-select" style="width:200px">
 														@foreach($dsxuatchieu2 as $xuatchieu)
@@ -63,9 +66,9 @@
 												</select>
 												<label for="simpleinput" style="color:red">@error('khachhang'){{$message}}@enderror</label><br>
 												
-											<div class="col-lg-6">
+
 												<button type="submit" class="btn btn-primary waves-effect waves-light">Thêm</button>
-											</div>
+
                                         </form>
                                     </div> <!-- end col -->
                                     
@@ -89,3 +92,5 @@
         </div>
 
 @endsection
+
+        <script src="assets/js/pages/form-advanced.init.js"></script>

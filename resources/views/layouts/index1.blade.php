@@ -14,11 +14,19 @@
 
         <!-- plugin css -->
         <link href="{{url('/libs/jquery-vectormap/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css" />
+		<link href="{{url('/libs/jquery-nice-select/nice-select.css" rel="stylesheet')}}" type="text/css" />
+        <link href="{{url('/libs/switchery/switchery.min.css" rel="stylesheet')}}" type="text/css" />
+        <link href="{{url('/libs/select2/select2.min.css" rel="stylesheet')}}" type="text/css" />
+        <link href="{{url('/libs/bootstrap-select/bootstrap-select.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{url('/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.css')}}" rel="stylesheet" type="text/css" />
 
         <!-- App css -->
         <link href="{{url('/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{url('/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{url('/css/app.min.css')}}" rel="stylesheet" type="text/css" />
+		
+		
+		
 
     </head>
 	
@@ -365,10 +373,21 @@
         <script src="~/js/vendor.min.js"></script>
 
         <!-- Third Party js-->
+		<script src="{{url('/js/pages/form-advanced.init.js')}}"></script>
         <script src="{{url('/libs/peity/jquery.peity.min.js')}}"></script>
         <script src="{{url('/libs/apexcharts/apexcharts.min.js')}}"></script>
         <script src="{{url('/libs/jquery-vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
         <script src="{{url('/libs/jquery-vectormap/jquery-jvectormap-us-merc-en.js')}}"></script>
+		<script src="{{url('/libs/bootstrap-select/bootstrap-select.min.js')}}"></script>
+		
+		
+		
+		<script src="{{url('/libs/jquery-nice-select/jquery.nice-select.min.js')}}"></script>
+        <script src="{{url('/libs/switchery/switchery.min.js')}}"></script>
+        <script src="{{url('/libs/select2/select2.min.js')}}"></script>
+        <script src="{{url('/libs/bootstrap-select/bootstrap-select.min.js')}}"></script>
+        <script src="{{url('/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js')}}"></script>
+        <script src="{{url('/libs/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
 
         <!-- Dashboard init -->
         <script src="{{url('/js/pages/dashboard-1.init.js')}}"></script>
