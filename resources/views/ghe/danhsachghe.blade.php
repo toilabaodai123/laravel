@@ -13,7 +13,6 @@
                                                 <th>Tên ghế</th>
 												<th>Loại ghế</th>
 												<th>Rạp</th>
-												<th>Giá ghế</th>
                                                 <th>Thao tác</th>
                                             </tr>
                                         </thead>
@@ -28,9 +27,6 @@
 													</td>
 												<td>
                                                     <h5 class="m-0 font-weight-normal">{{$ghe->tenrap}}</h5>
-                                                </td>
-												<td>
-                                                    <h5 class="m-0 font-weight-normal">{{$ghe->giaghe}}</h5>
                                                 </td>
 													
 												

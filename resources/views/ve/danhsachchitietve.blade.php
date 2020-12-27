@@ -2,7 +2,7 @@
 @section('content')
 
                         <div class="col-xl-6"  >
-                            <div class="card-box" style="width:1500px">
+                            <div class="card-box" style="width:900px">
                                 <h4 class="header-title mb-3">Danh sách vé</h4>
 								<h4 class="header-title mb-3">{{session('message')}}</h4>
                                 <div class="table-responsive">
@@ -10,44 +10,38 @@
 
                                         <thead class="thead-light">
                                             <tr>
-												<th>ID vé</th>
-                                                <th>Tên phim</th>
-												<th>Khách hàng</th>
-												<th>Thời gian đặt vé</th>
-												<th>Ngày chiếu</th>
+												<th>ID </th>
+												<th>ID vé </th>
+                                                <th>Phim</th>
+												<th>Ghế</th>
+												<th>Rạp</th>
 												<th>Tổng tiền</th>
-                                                <th>Thao tác</th>
+                                                <th hidden>Thao tác</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-											@foreach ($test as $ve )
+											@foreach ($dschitietve as $a)
 												<tr>
 												<td>
-                                                    <h5 class="m-0 font-weight-normal">{{$ve->id}}</h5>
+                                                    <h5 class="m-0 font-weight-normal">{{$a->id}}</h5>
                                                 </td>
 												<td>
-													<h5 class="m-0 font-weight-normal">{{$ve->tenphim}}</h5>
+													<h5 class="m-0 font-weight-normal">{{$a->idve}}</h5>
 												</td>
 												<td>
-                                                    <h5 class="m-0 font-weight-normal">{{$ve->taikhoan}}</h5>
+                                                    @foreach($dataphim as $phim)<h5 class="m-0 font-weight-normal">{{$phim->tenphim}}</h5>@endforeach
                                                 </td>
 												<td>
-													<h5 class="m-0 font-weight-normal">{{$ve->created_at}}</h5>
+													@foreach($dataghe as $ghe)<h5 class="m-0 font-weight-normal">{{$ghe->tenghe}}</h5>@endforeach
 												</td>
 												<td>
-                                                    <h5 class="m-0 font-weight-normal">{{$ve->gio}} giờ {{$ve->dmy}}</h5>
+													@foreach($datarap as $rap)<h5 class="m-0 font-weight-normal">{{$rap->tenrap}}</h5>@endforeach
                                                 </td>
 												<td style="width:50px">
-                                                    <h5 class="m-0 font-weight-normal">{{$ve->tongtienve}}</h5>
+                                                    <h5 class="m-0 font-weight-normal">{{$a->tongtienchitiet}}</h5>
                                                 </td>
-												
-												
-												
-												
-                                                <td >
-                                                    <a hidden href="ve/{{$ve->id}}" class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil">Sửa</i></a>
-													<a  href="ve/{{$ve->id}}" class="btn btn-xs btn-secondary"><i class="mdi mdi-pencil">Xem</i></a>
-													<form hidden action="ve/{{$ve->id}}" method="POST">
+                                                <td >         
+													<form hidden action="ve/$ve->id" method="POST">
 														@csrf
 														@method('DELETE')
 														<button type="submit" class="btn btn-xs btn-secondary">
@@ -61,7 +55,6 @@
                                         </tbody>
 										
                                     </table>
-									<label for="simpleinput" style="float:right">Tổng tiền : {{$tong}}</label>
                                 </div> <!-- end .table-responsive-->
                             </div> <!-- end card-box-->
                         </div> <!-- end col -->

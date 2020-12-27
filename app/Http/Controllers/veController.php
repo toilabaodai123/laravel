@@ -10,6 +10,8 @@ use App\xuatchieu;
 use DB;
 use App\khachhang;
 use App\thoigianghe;
+use App\chitietve;
+use App\rap;
 
 class veController extends Controller
 {
@@ -34,10 +36,9 @@ class veController extends Controller
 		$dsxuatchieu = xuatchieu::all();
 		$test = DB::table('ves')
 				->join('phims','ves.phim','phims.id')
-				->join('ghes','ves.ghe','ghes.id')
 				->join('xuatchieus','ves.xuatchieu','xuatchieus.id')
 				->join('khachhangs','ves.khachhang','khachhangs.taikhoan')
-				->select('ves.id','phims.tenphim','ghes.tenghe','xuatchieus.dmy','xuatchieus.gio','khachhangs.taikhoan','khachhangs.hoten','ves.tongtienve')
+				->select('ves.created_at','ves.id','phims.tenphim','xuatchieus.dmy','xuatchieus.gio','khachhangs.taikhoan','khachhangs.hoten','ves.tongtienve')
 				->get();
 			return view('ve.danhsachve',
 			compact('dsve','dsphim','dsghe','dskhachhang','dsxuatchieu','test','tong'));
@@ -46,7 +47,7 @@ class veController extends Controller
 	}
 
 	
-	public function show($id){
+	/* public function show($id){
 		$dsve = ve::findorfail($id);
 		
 		$dskhachhang=khachhang::all();
@@ -59,7 +60,20 @@ class veController extends Controller
 		
 		return view('ve.suave',
 		compact('dsve','dsphim','dsghe','dsxuatchieu','dsphim2','dsghe2','dsxuatchieu2','dskhachhang'));
-	}
+	} */
+		public function show($id){
+		$dsve = ve::findorfail($id);
+		$dschitietve = chitietve::where('idve',$dsve->id)->get();
+		$b='';
+		//dd($dschitietve);
+		foreach($dschitietve as $dschitietve2){
+			$dataphim = phim::where('id',$dschitietve2->idphim)->get();
+			$dataghe = ghe::where('id',$dschitietve2->idghe)->get();
+			$datarap = rap::where('id',$dschitietve2->idrap)->get();
+		}
+		return view('ve.danhsachchitietve',
+		compact('dschitietve','dschitietve2','dataphim','dataghe','datarap'));
+		}
 	
 		public function store(){
 			

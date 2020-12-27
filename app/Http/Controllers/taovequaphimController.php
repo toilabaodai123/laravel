@@ -104,12 +104,14 @@ class taovequaphimController extends Controller
 		}
 		dd($b); */
 		
-				$idve = 0;
+		$idve = 0;
 		$abc = count($data = ve::all());
 		//dd($abc);
-		if($abc!=0){
+		if($abc>0){
 			$dataidve1 = ve::all()->last()->get();
-			foreach($dataidve1 as $id){$idve = $id->id;};}
+			foreach($dataidve1 as $id){$idve = $id->id;};
+			$idve = $idve +1;
+			}
 		else
 			$idve=1;
 		//dd($dataidve1);
