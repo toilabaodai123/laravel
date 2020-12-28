@@ -125,13 +125,24 @@ class taovequaphimController extends Controller
 		
 		//$dataidve2 = end($dataidve1);
 		//dd($a);
+		//}
+		//dd(count($a));
+		$dem=0;
+		//dd($a);
 		foreach((array)$a as &$d){
 			foreach($datathoigianghe as $data){
-				if( $data->ghe == $d&&  $data->thoigian == $dsve->xuatchieu && $data->phim == $dsve->phim&& $data->rap == $dsve->rap)
+				if( $data->ghe == $d&&  $data->thoigian == $dsve->xuatchieu && $data->phim == $dsve->phim&& $data->rap == $dsve->rap){
 					return redirect('/themvequaphim/'.$dsve->phim)->with('message','Ghế có id '.$d .' đãcó người đặt');
-				else
+				break;}
+				else{
 					continue;
-		}
+					
+				}
+		}					$dem++;}
+		//dd($dem);
+		if($dem == count($a)){
+			foreach((array)$a as &$d){
+		//dd($dem);
 		$dsthoigianghe = new thoigianghe();
 		$dsthoigianghe->thoigian=request('xuatchieu');
 		$dsthoigianghe->phim=request('phim');
@@ -168,7 +179,10 @@ class taovequaphimController extends Controller
 		//dd($tongtienctv);
 		$dsthoigianghe->save();
 		$dschitietve->save();
-		}
+		continue;
+		}}
+		else
+			return redirect('/themvequaphim/'.$dsve->phim)->with('message','Ghế có id '.$d .' đãcó người đặt');
 		
 /* 		foreach($datathoigianghe as $data){
 		if($data->thoigian == $dsve->xuatchieu && $data->ghe == $dsve->ghe && $data->phim == $dsve->phim&& $data->rap == $dsve->rap)
@@ -183,13 +197,14 @@ class taovequaphimController extends Controller
 		foreach($dsvetien1 as $a){$tong = $tong + $a->tongtienchitiet;};
 		$dsve->tongtienve=$tong;
 		$dsve->save();
+		
+		
 
 		
-
+		
+		return redirect('/themvequaphim/'.$dsve->phim)->with('message','Thêm thành công vé');}
 		
 		
-		return redirect('/themvequaphim/'.$dsve->phim)->with('message','Thêm thành công vé');
-		}
 	
 
 }
